@@ -1,0 +1,147 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #customerForm="ngForm"
+        (ngSubmit)="onClick()">
+          <div class="form-group">
+            <label>First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              [(ngModel)]="customer.firstName"
+              #firstName="ngModel"
+              required
+              [class.is-invalid]="firstName.invalid && firstName.touched"
+            />
+            <div *ngIf="(firstName.invalid && firstName.touched)|| firstName.dirty">
+            <small class="text-danger" *ngIf="firstName.errors?.['required']"
+            >
+            First Name is required</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              [(ngModel)]="customer.lastName"
+              #lastName="ngModel"
+              required
+              [class.is-invalid]="lastName.invalid && lastName.touched"
+              />
+              <div *ngIf="(lastName.invalid && lastName.touched)|| lastName.dirty">
+              <small class="text-danger" *ngIf="lastName.errors?.['required']"
+              >
+              Last Name is required</small>
+              </div>
+            </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input
+              type="text"
+              class="form-control"
+              name="address"
+              [(ngModel)]="customer.address"
+              #address="ngModel"
+              required
+              [class.is-invalid]="address.invalid && address.touched"
+              />
+              <div *ngIf="(address.invalid && address.touched)|| address.dirty">
+              <small class="text-danger" *ngIf="address.errors?.['required']"
+              >
+              Address is required</small>
+              </div>
+            </div>
+          <div class="form-group">
+            <label>City</label>
+            <input
+              type="text"
+              class="form-control"
+              name="city"
+              [(ngModel)]="customer.city"
+              #city="ngModel"
+              required
+              [class.is-invalid]="city.invalid && city.touched"
+              />
+              <div *ngIf="(city.invalid && city.touched)|| city.dirty">
+              <small class="text-danger" *ngIf="city.errors?.['required']"
+              >
+              City is required</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  #email="ngModel"
+                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  required
+                  [class.is-invalid]="email.invalid && email.touched"
+                  class="form-control"
+                  name="email"
+                  [(ngModel)]="customer.email"
+                />
+                <div *ngIf="(email.invalid && email.touched) || email.dirty">
+                  <small class="text-danger" *ngIf="email.errors?.['required']"
+                    >Email address is required</small
+                  >
+                  <small class="text-danger" *ngIf="email.errors?.['pattern']"
+                    >Email address is invalid</small
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                    Female
+                    </label>
+                  </div>
+            </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+
+          [disabled]="customerForm.form.invalid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

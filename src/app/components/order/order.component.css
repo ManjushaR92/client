@@ -1,0 +1,9 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    padding:20px;
+    background-color: antiquewhite;
+    height:450px;
+    border-radius: 50px;
+    margin:20px;
+}

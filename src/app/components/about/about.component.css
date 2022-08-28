@@ -1,0 +1,23 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    align-content:center;
+}
+
+.left{
+    background-color: aquamarine;
+    width:20%;
+    height:450px;
+    border-radius:50px;
+    padding:20px;
+    margin:10px;
+}
+.right{
+    background-color: aquamarine;
+    width:75%;
+    height:450px;
+    border-radius: 50px;
+    padding:20px;
+    margin:auto;
+}

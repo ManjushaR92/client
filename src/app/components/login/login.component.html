@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="card col-4" id="card-head">
+    <div class="card-body">
+      <div class="card-title text-center">
+        <h2>Login Form</h2>
+      </div>
+      <div class="card-text">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              #email="ngModel"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+              [class.is-invalid]="email.invalid && email.touched"
+              class="form-control"
+              name="email"
+              [(ngModel)]="userModel.email"
+            />
+            <div *ngIf="(email.invalid && email.touched) || email.dirty">
+              <small class="text-danger" *ngIf="email.errors?.['required']"
+                >Email address is required</small
+              >
+              <small class="text-danger" *ngIf="email.errors?.['pattern']"
+                >Email address is invalid</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group" class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              required
+              #password="ngModel"
+              pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
+              [class.is-invalid]="password.invalid && password.touched"
+              class="form-control"
+              name="password"
+              [(ngModel)]="userModel.password"
+            />
+            <div
+              *ngIf="(password.invalid && password.touched) || password.dirty"
+            >
+              <small class="text-danger" *ngIf="password.errors?.['required']"
+                >Password is required</small
+              >
+              <small class="text-danger" *ngIf="password.errors?.['pattern']"
+                >Password should be minimum 8 characters which contain at least
+                one lowercase letter, one uppercase letter, one numeric digit,
+                and one special character</small
+              >
+            </div>
+          </div>
+          <br />
+
+          <button [disabled]="userForm.form.invalid"type="submit" class="btn btn-primary col-12">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
