@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/shared/customer';
 import { Router } from '@angular/router';
-import { CustomerService } from 'src/app/services/customer.service';
+
 
 
 @Component({
@@ -13,7 +13,7 @@ export class AddCustomerComponent implements OnInit {
 
   customer= new Customer('','','','','','','');
 
-  constructor(public router: Router,public service:CustomerService) { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
 
